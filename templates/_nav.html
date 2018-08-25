@@ -1,0 +1,27 @@
+<nav class="navbar-default navbar-static-side  " role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="logo-element">
+                    Devops
+                </div>
+            </li>
+            <li>
+                <a href="{% url "index" %}"><i class="fa fa-dashboard"></i> <span class="nav-label">首页</span>
+                </a>
+            <li class="{{ asset_active }}">
+                <a href="#"><i class="fa fa-inbox"></i> <span class="nav-label">版本发布</span>
+                    <span class="fa arrow"> </span></a>
+                <ul class="nav nav-second-level">
+                    <li class="{{ asset_list_active }}"><a href="{% url  "releasenote" %}">releasenote</a></li>
+
+                </ul>
+            </li>
+
+            </li>
+
+
+        </ul>
+
+    </div>
+</nav>
