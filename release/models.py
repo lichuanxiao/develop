@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -20,10 +21,10 @@ class Relese(models.Model):
     HD = 'HD'
     SC = 'SC'
     DEPLOY_ENV_CHOICES = (
-    (TEST,"测试环境"),
-    (YL,"演练环境"),
-    (HD,"灰度环境"),
-    (SC,"生产环境"),
+        (TEST, "测试环境"),
+        (YL, "演练环境"),
+        (HD, "灰度环境"),
+        (SC, "生产环境"),
     )
 
     RELEASE_TYPE_CHOICES = (
@@ -39,11 +40,9 @@ class Relese(models.Model):
     release_func = models.TextField()
     release_Attachments = models.FileField(upload_to="attachments/%Y/%m/%d/")
 
-
     class Meta:
         ordering = ["deploy_time"]
         verbose_name = "发布详情"
-
 
     def __str__(self):
         return self.release_title
@@ -64,7 +63,6 @@ class ReleaseProjectList(models.Model):
     release_id = models.IntegerField(verbose_name="发布编号 ID")
     project_version = models.CharField(max_length=10, verbose_name="项目产品版本")
     project_version = models.CharField(max_length=40, verbose_name="项目代码版本")
-    
 
     class Mate:
         verbose_name = "发布项目清单"
@@ -81,7 +79,7 @@ class GroupInfo(models.Model):
 
     def __str__(self):
         return self.group_name
-    
+
 
 class ProjectInfo(models.Model):
     """
@@ -90,7 +88,6 @@ class ProjectInfo(models.Model):
     project_name = models.CharField(max_length=30, verbose_name="项目名称", unique=True)
     project_description = models.CharField(max_length=200, verbose_name="项目详细描述")
     project_url = models.URLField(null=True, blank=True)
-
 
     def __str__(self):
         return self.project_name
